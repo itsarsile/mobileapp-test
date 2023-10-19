@@ -1,79 +1,35 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## A. Topik Komunikasi dengan Manajer Produk
 
-# Getting Started
+1. Apakah teks yang lebih dari 3 baris harus dipotong tepat setelah 3 baris terakhir atau ada kebutuhan khusus dalam penentuan titik potong?
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+2. Apakah ada batasan jumlah upvotes, downvotes atau komentar yang dapat ditampilkan dihalaman? Jika iya, berapa jumlahnya?
 
-## Step 1: Start the Metro Server
+3. Batasan teknis apa yang perlu diperhatikan dan dipertimbangkan dalam pengembangan fitur ini?
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+---
+## B. Coding
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
+Done:
+- Memotong teks maksimal 3 baris dan menambahkan More diakhiran teks
+- Membuat gambar layout sesuai dengan tinggi teks
 
-# OR using Yarn
-yarn start
-```
+Doing:
 
-## Step 2: Start your Application
+ada pada poin B penambahan logika, karena masih ada kebingungan mengenai apakah sinkronisasi diperlukan sebuah database?
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+---
+## C1.
+1. Struktur Data
+	*Graph* dapat membantu memecahkan masalah untuk fitur ini. Dengan merepresentasikan node antara pengguna dengan node yang ingin direkomendasikan.
+2. Apabila ada kondisi ekstrim seperti tidak adanya koneksi, kita bisa mendapatkan rekomendasi berdasarkan ketertarikan pengguna dengan cara menghitung interaksi post yang sering dilakukan oleh pengguna.
+3. Jika banyaknya pengguna, kita dapat memangkas rekomendasi dengan cara mengutamakan dengan kesamaan yang tinggi.
+4. Pengujian
+	- Pengujian unit & integration dapat memastikan fitur berjalan dengan baik.
+	- Pengujian A/B untuk mengukur efektivitasan fitur.
 
-### For Android
 
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## C2 - Logika
+1. Pengguna mendaftar  -> Menyajikan ketertarikan pengguna dengan memilih topik
+2. Interaksi pengguna dengan konten -> menambahkan poin interaksi untuk mengkurasi konten berikutnya berdasarkan konteks konten tersebut (ex: konten memiliki tag "android", "development", "coding"). Maka, tag tersebut merepresentasikan 1 poin apabila pengguna berinteraksi dengan konten tersebut.
+3. Sebaliknya, apabila pengguna dapat memilih "ketidak ketertarikan" atas konten tersebut maka poin berdasarkan (disini tag) "android", "development", "coding" maka dikurangkan sebanyak 1 poin juga.

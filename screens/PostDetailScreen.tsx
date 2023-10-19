@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
+import postsData from '../utils/mock/posts.json';
 import IconBack from '../assets/back.png';
 import IconBlock from '../assets/block.png';
 import IconComment from '../assets/comment.png';
@@ -19,6 +19,8 @@ import IconDownvoteInactive from '../assets/downvote_inactive.png';
 import IconShare from '../assets/share.png';
 import IconUpvoteActive from '../assets/upvote_active.png';
 import IconUpvoteInactive from '../assets/upvote_inactive.png';
+
+console.log(postsData);
 
 function PostDetailScreen() {
   const navigation = useNavigation();
